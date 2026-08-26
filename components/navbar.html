@@ -32,25 +32,34 @@
         <div class="hidden md:block w-12"></div>
         
         
-        <button id="mobile-menu-btn" class="md:hidden text-gray-700 focus:outline-none">
-            <i class="fas fa-bars text-xl"></i>
+        <button id="mobile-menu-btn" class="md:hidden text-gray-700 focus:outline-none relative w-9 h-9 flex items-center justify-center" aria-label="Toggle menu">
+            <!-- Hamburger Icon -->
+            <div class="hamburger-icon flex flex-col items-center justify-center gap-1.5 w-6 transition-all duration-300">
+                <span class="hamburger-line block w-6 h-0.5 bg-gray-700 rounded-full transition-all duration-300 origin-center"></span>
+                <span class="hamburger-line block w-6 h-0.5 bg-gray-700 rounded-full transition-all duration-300 origin-center"></span>
+                <span class="hamburger-line block w-6 h-0.5 bg-gray-700 rounded-full transition-all duration-300 origin-center"></span>
+            </div>
+            <!-- Scissors Icon (hidden by default) -->
+            <div class="scissors-icon absolute inset-0 flex items-center justify-center opacity-0 transition-all duration-300">
+                <i class="fas fa-cut text-2xl text-gray-700"></i>
+            </div>
         </button>
     </div>
     
     
     <div id="mobile-menu" class="hidden md:hidden glass-nav-mobile backdrop-blur-md bg-white/95 shadow-lg mt-2 mx-4 rounded-2xl">
         <div class="px-4 py-3 space-y-2">
-            <a href="index.html" class="flex items-center text-gray-700 transition-colors text-sm py-2 px-3 rounded-lg">
-                Home
+            <a href="index.html" class="mobile-nav-link flex items-center text-gray-700 transition-colors text-sm py-2 px-3 rounded-lg hover:bg-blue-600 hover:text-white">
+                <i class="fas fa-home mr-3 text-gray-400"></i> Home
             </a>
-            <a href="about.html" class="flex items-center text-gray-700 transition-colors text-sm py-2 px-3 rounded-lg">
-                About
+            <a href="about.html" class="mobile-nav-link flex items-center text-gray-700 transition-colors text-sm py-2 px-3 rounded-lg hover:bg-blue-600 hover:text-white">
+                <i class="fas fa-info-circle mr-3 text-gray-400"></i> About
             </a>
-            <a href="services.html" class="flex items-center text-gray-700 transition-colors text-sm py-2 px-3 rounded-lg">
-                Services
+            <a href="services.html" class="mobile-nav-link flex items-center text-gray-700 transition-colors text-sm py-2 px-3 rounded-lg hover:bg-blue-600 hover:text-white">
+                <i class="fas fa-ship mr-3 text-gray-400"></i> Services
             </a>
-            <a href="contact.html" class="flex items-center text-gray-700 transition-colors text-sm py-2 px-3 rounded-lg">
-                Contact
+            <a href="contact.html" class="mobile-nav-link flex items-center text-gray-700 transition-colors text-sm py-2 px-3 rounded-lg hover:bg-blue-600 hover:text-white">
+                <i class="fas fa-envelope mr-3 text-gray-400"></i> Contact
             </a>
         </div>
     </div>
@@ -105,6 +114,7 @@
         -webkit-backdrop-filter: blur(8px) !important;
         border: none !important;
         height: 100% !important;
+        position: relative !important;
     }
     
     /* LIQUID SHIMMER EFFECT - MORE SUBTLE */
@@ -258,6 +268,69 @@
         color: white !important;
         border-radius: 9999px !important;
     }
+
+    /* ========================================
+       MOBILE NAV LINK ICONS
+       ======================================== */
+    .mobile-nav-link i {
+        width: 20px;
+        text-align: center;
+        transition: color 0.3s ease;
+    }
+    
+    .mobile-nav-link:hover i {
+        color: white !important;
+    }
+    
+    /* ========== HAMBURGER TO SCISSORS ANIMATION ========== */
+    #mobile-menu-btn {
+        width: 44px !important;
+        height: 44px !important;
+        border-radius: 50% !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    #mobile-menu-btn:hover {
+        background: rgba(0, 0, 0, 0.05) !important;
+    }
+    
+    #mobile-menu-btn.active .hamburger-icon .hamburger-line:nth-child(1) {
+        transform: rotate(45deg) translate(4px, 5px);
+        width: 20px;
+    }
+    
+    #mobile-menu-btn.active .hamburger-icon .hamburger-line:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+    
+    #mobile-menu-btn.active .hamburger-icon .hamburger-line:nth-child(3) {
+        transform: rotate(-45deg) translate(4px, -5px);
+        width: 20px;
+    }
+    
+    #mobile-menu-btn.active .hamburger-icon {
+        opacity: 0;
+        transform: scale(0.5) rotate(-90deg);
+    }
+    
+    #mobile-menu-btn.active .scissors-icon {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+    
+    .scissors-icon {
+        transform: scale(0.5) rotate(90deg);
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    
+    .hamburger-icon {
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    
+    .hamburger-line {
+        transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
     
     /* ========== SMALL LIGHT BLUE SCROLL TO TOP BUTTON ========== */
     .scroll-top {
@@ -346,6 +419,15 @@
         .scroll-top { width: 34px !important; height: 34px !important; bottom: 18px !important; right: 18px !important; }
         .scroll-top i { font-size: 0.8rem !important; }
         .blur-zoom-on-scroll { filter: blur(3px) !important; }
+        
+        #mobile-menu-btn {
+            width: 38px !important;
+            height: 38px !important;
+        }
+        
+        #mobile-menu-btn .fa-cut {
+            font-size: 1.2rem !important;
+        }
     }
     
     @media (min-width: 768px) and (max-width: 1024px) {
@@ -380,7 +462,7 @@
             }
         });
         
-        // Mobile menu toggle
+        // Mobile menu toggle with scissors animation
         const menuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         if (menuBtn && mobileMenu) {
@@ -390,13 +472,32 @@
             newBtn.addEventListener('click', function(e) {
                 e.stopPropagation();
                 mobileMenu.classList.toggle('hidden');
+                this.classList.toggle('active');
             });
         }
         
+        // Close menu and reset icon when a mobile link is clicked
         document.querySelectorAll('#mobile-menu a').forEach(link => {
             link.addEventListener('click', function() {
                 mobileMenu.classList.add('hidden');
+                const btn = document.getElementById('mobile-menu-btn');
+                if (btn) {
+                    btn.classList.remove('active');
+                }
             });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                if (!mobileMenu.contains(e.target) && e.target !== menuBtn && !menuBtn.contains(e.target)) {
+                    mobileMenu.classList.add('hidden');
+                    const btn = document.getElementById('mobile-menu-btn');
+                    if (btn) {
+                        btn.classList.remove('active');
+                    }
+                }
+            }
         });
         
         // Scroll enlarge effect for navbar

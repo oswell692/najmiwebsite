@@ -17,11 +17,55 @@
         html, body {
             overflow-x: hidden !important;
             width: 100% !important;
+            max-width: 100% !important;
+        }
+        
+        * {
+            max-width: 100%;
+            box-sizing: border-box;
         }
         
         img {
             max-width: 100%;
             height: auto;
+        }
+
+        .container {
+            max-width: 100% !important;
+            overflow-x: hidden !important;
+        }
+
+        /* ===== DISABLE BLUR-ZOOM ON MOBILE TO PREVENT FLICKERING ===== */
+        @media (max-width: 768px) {
+            .blur-zoom-on-scroll {
+                opacity: 1 !important;
+                filter: blur(0px) !important;
+                transform: scale(1) !important;
+                transition: none !important;
+                pointer-events: auto !important;
+            }
+            
+            .blur-zoom-on-scroll.visible {
+                opacity: 1 !important;
+                filter: blur(0px) !important;
+                transform: scale(1) !important;
+            }
+        }
+
+        /* Also disable on touch devices */
+        @media (hover: none) and (pointer: coarse) {
+            .blur-zoom-on-scroll {
+                opacity: 1 !important;
+                filter: blur(0px) !important;
+                transform: scale(1) !important;
+                transition: none !important;
+            }
+            
+            .blur-zoom-on-scroll.visible {
+                opacity: 1 !important;
+                filter: blur(0px) !important;
+                transform: scale(1) !important;
+            }
         }
 
         /* ===== FIX HERO IMAGES ZOOMING ON MOBILE ===== */
@@ -30,6 +74,46 @@
                 background-size: contain !important;
                 background-color: #0a1628 !important;
                 background-position: center !important;
+            }
+            
+            /* ===== FIX HERO HEIGHT ON MOBILE ===== */
+            .heroSwiper {
+                height: 50vh !important;
+                max-height: 400px !important;
+                min-height: 300px !important;
+            }
+            
+            .slide-content {
+                margin-top: 10px !important;
+            }
+            
+            .hero-heading, .hero-heading-red {
+                font-size: 1.8rem !important;
+            }
+            
+            .slide-content p {
+                font-size: 0.85rem !important;
+            }
+            
+            .btn-primary, .btn-secondary {
+                padding: 6px 16px !important;
+                font-size: 0.75rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .heroSwiper {
+                height: 45vh !important;
+                max-height: 350px !important;
+                min-height: 250px !important;
+            }
+            
+            .hero-heading, .hero-heading-red {
+                font-size: 1.5rem !important;
+            }
+            
+            .slide-content p {
+                font-size: 0.75rem !important;
             }
         }
 
@@ -84,12 +168,12 @@
         
         /* Push content down on ALL slides */
         .slide-content {
-            margin-top: 100px;
+            margin-top: 80px;
         }
         
         @media (max-width: 768px) {
             .slide-content {
-                margin-top: 50px;
+                margin-top: 20px;
             }
         }
         
@@ -307,18 +391,48 @@
             transform: translateY(-2px);
             border-color: #1E3A8A;
         }
+
+        /* ===== MOBILE GRID FIXES ===== */
+        @media (max-width: 768px) {
+            .grid.md\:grid-cols-2 {
+                grid-template-columns: 1fr !important;
+            }
+            .grid.md\:grid-cols-3 {
+                grid-template-columns: 1fr 1fr !important;
+            }
+            .grid.md\:grid-cols-4 {
+                grid-template-columns: 1fr 1fr !important;
+            }
+            .grid-cols-2.md\:grid-cols-3.lg\:grid-cols-6 {
+                grid-template-columns: repeat(3, 1fr) !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid.md\:grid-cols-3 {
+                grid-template-columns: 1fr 1fr !important;
+            }
+            .grid-cols-2.md\:grid-cols-3.lg\:grid-cols-6 {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+
+        /* ===== FIX TOUCH SCROLL FLICKERING ===== */
+        .blur-zoom-on-scroll {
+            will-change: auto !important;
+        }
     </style>
 </head>
-<body class="bg-[#F8F9FA]">
+<body class="bg-[#F8F9FA] overflow-x-hidden">
     
     <div id="navbar-placeholder"></div>
     
     <!-- Hero Swiper -->
-    <section class="pt-16">
-        <div class="swiper heroSwiper h-[85vh] md:h-[80vh]">
+    <section class="pt-16 overflow-x-hidden">
+        <div class="swiper heroSwiper w-full h-[85vh] md:h-[80vh]">
             <div class="swiper-wrapper">
                 <!-- FIRST SLIDE - Truck Image -->
-                <div class="swiper-slide relative">
+                <div class="swiper-slide relative overflow-x-hidden">
                     <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('images/truck.png'); background-size: cover; background-position: center;"></div>
                     <div class="slide-overlay-dark"></div>
                     <div class="relative z-20 flex flex-col justify-center items-center h-full text-white text-center px-4 slide-content">
@@ -343,7 +457,7 @@
                 </div>
                 
                 <!-- SECOND SLIDE - Plane Image -->
-                <div class="swiper-slide relative">
+                <div class="swiper-slide relative overflow-x-hidden">
                     <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('images/plane.png'); background-size: cover; background-position: center;"></div>
                     <div class="slide-overlay-dark"></div>
                     <div class="relative z-20 flex flex-col justify-center items-center h-full text-white text-center px-4 slide-content">
@@ -365,7 +479,7 @@
                 </div>
                 
                 <!-- THIRD SLIDE - Container Ship Image -->
-                <div class="swiper-slide relative">
+                <div class="swiper-slide relative overflow-x-hidden">
                     <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920&h=1080&fit=crop'); background-size: cover;"></div>
                     <div class="slide-overlay-dark"></div>
                     <div class="relative z-20 flex flex-col justify-center items-center h-full text-white text-center px-4 slide-content">
@@ -387,7 +501,7 @@
                 </div>
                 
                 <!-- FOURTH SLIDE - Container Ship at Sea -->
-                <div class="swiper-slide relative">
+                <div class="swiper-slide relative overflow-x-hidden">
                     <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1920&h=1080&fit=crop'); background-size: cover;"></div>
                     <div class="slide-overlay-dark"></div>
                     <div class="relative z-20 flex flex-col justify-center items-center h-full text-white text-center px-4 slide-content">
@@ -415,8 +529,8 @@
     </section>
     
     <!-- Services Section -->
-    <section class="py-16 px-6">
-        <div class="container mx-auto">
+    <section class="py-16 px-6 overflow-x-hidden">
+        <div class="container mx-auto max-w-full overflow-x-hidden">
             <div class="text-center mb-10">
                 <span class="text-xs uppercase tracking-wider text-[#1E3A8A] font-semibold" data-aos="fade-up">What We Offer</span>
                 <h2 class="text-2xl md:text-3xl font-bold mt-2 section-title" data-aos="fade-up" data-aos-delay="50">
@@ -427,7 +541,7 @@
                 </p>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 overflow-x-hidden">
                 <!-- Shipping -->
                 <div class="service-card bg-white rounded-xl p-5 shadow-md" data-aos="fade-up" data-aos-delay="0">
                     <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mb-3 float-icon">
@@ -486,13 +600,13 @@
     </section>
     
     <!-- Stats Section - Blue & Green Theme -->
-    <section class="stats-bg py-12 px-6 relative overflow-hidden">
-        <div class="container mx-auto relative z-10">
+    <section class="stats-bg py-12 px-6 relative overflow-hidden overflow-x-hidden">
+        <div class="container mx-auto relative z-10 max-w-full overflow-x-hidden">
             <div class="text-center mb-8">
                 <span class="text-xs uppercase tracking-wider text-white/80 font-semibold" data-aos="fade-up">Our Impact</span>
                 <h2 class="text-2xl md:text-3xl font-bold mt-2 text-white" data-aos="fade-up" data-aos-delay="50">Numbers That <span class="text-[#FFD700]">Speak</span></h2>
             </div>
-            <div class="grid md:grid-cols-4 gap-4 text-center text-white">
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center text-white overflow-x-hidden">
                 <div class="stats-card" data-aos="zoom-in" data-aos-delay="0">
                     <div class="text-3xl md:text-4xl font-extrabold mb-1 counter" data-target="1500">0</div>
                     <p class="text-[10px] uppercase tracking-wider text-white/80">Containers Handled</p>
@@ -514,15 +628,15 @@
     </section>
     
     <!-- Why Choose Us -->
-    <section class="py-16 px-6 bg-[#F8F9FA]">
-        <div class="container mx-auto">
+    <section class="py-16 px-6 bg-[#F8F9FA] overflow-x-hidden">
+        <div class="container mx-auto max-w-full overflow-x-hidden">
             <div class="text-center mb-10">
                 <span class="text-xs uppercase tracking-wider text-[#1E3A8A] font-semibold" data-aos="fade-up">Why Choose Us</span>
                 <h2 class="text-2xl md:text-3xl font-bold mt-2 section-title" data-aos="fade-up" data-aos-delay="50">Why Choose <span class="gradient-text">Najmi International</span>?</h2>
                 <p class="text-gray-600 text-sm max-w-2xl mx-auto mt-4" data-aos="fade-up" data-aos-delay="100">Your trusted partner in freight and logistics since 2001</p>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 overflow-x-hidden">
                 <div class="why-card text-center p-5 rounded-xl bg-white shadow-sm" data-aos="flip-left" data-aos-delay="0">
                     <div class="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-3 bg-blue-50">
                         <i class="fas fa-map-marked-alt text-xl text-blue-700"></i>
@@ -559,15 +673,15 @@
     </section>
     
     <!-- Testimonials -->
-    <section class="py-16 px-6">
-        <div class="container mx-auto">
+    <section class="py-16 px-6 overflow-x-hidden">
+        <div class="container mx-auto max-w-full overflow-x-hidden">
             <div class="text-center mb-10">
                 <span class="text-xs uppercase tracking-wider text-[#1E3A8A] font-semibold" data-aos="fade-up">Testimonials</span>
                 <h2 class="text-2xl md:text-3xl font-bold mt-2 section-title" data-aos="fade-up" data-aos-delay="50">What Our <span style="color: var(--primary-blue);">Clients Say</span></h2>
                 <p class="text-gray-600 text-sm max-w-2xl mx-auto mt-4" data-aos="fade-up" data-aos-delay="100">Trusted by businesses across Africa</p>
             </div>
             
-            <div class="swiper testimonialSwiper">
+            <div class="swiper testimonialSwiper overflow-x-hidden">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="testimonial-card bg-white rounded-xl p-6 shadow-md text-center">
@@ -629,8 +743,8 @@
     </section>
     
     <!-- Coverage Section - WITH FLAGS -->
-    <section class="py-16 px-6 bg-[#F8F9FA]">
-        <div class="container mx-auto">
+    <section class="py-16 px-6 bg-[#F8F9FA] overflow-x-hidden">
+        <div class="container mx-auto max-w-full overflow-x-hidden">
             <div class="text-center mb-10">
                 <span class="text-xs uppercase tracking-wider text-[#1E3A8A] font-semibold" data-aos="fade-up">Where We Operate</span>
                 <h2 class="text-2xl md:text-3xl font-bold mt-2 section-title" data-aos="fade-up" data-aos-delay="50">Our <span style="color: var(--primary-blue);">Presence</span></h2>
@@ -640,7 +754,7 @@
             <!-- International Partners - WITH FLAGS -->
             <div class="mb-12" data-aos="fade-up" data-aos-delay="150">
                 <h3 class="text-center text-lg font-bold mb-6">International <span class="text-blue-700">Partners</span></h3>
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6 gap-4 overflow-x-hidden">
                     <div class="bg-white rounded-xl p-4 text-center shadow-md hover:shadow-lg transition group">
                         <img src="https://flagcdn.com/w80/tz.png" alt="Tanzania Flag" class="w-12 h-8 mx-auto mb-2 shadow-sm rounded object-cover group-hover:scale-105 transition">
                         <p class="font-semibold text-sm">Tanzania</p>
@@ -673,7 +787,7 @@
             <!-- Zambia Authorized Services - NEW BEAUTIFUL CARDS -->
             <div class="text-center" data-aos="fade-up" data-aos-delay="200">
                 <h3 class="text-center text-lg font-bold mb-6">In Zambia we are authorized to provide:</h3>
-                <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto overflow-x-hidden">
                     <!-- Card 1 - Final Clearances -->
                     <div class="auth-card bg-white rounded-2xl p-5 shadow-lg hover:shadow-2xl transition-all duration-300 relative overflow-hidden group">
                         <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-500/10 to-transparent rounded-bl-full"></div>
@@ -712,8 +826,8 @@
     </section>
     
     <!-- Border Offices Section - Clean Simple List -->
-    <section class="py-12 px-6 bg-white">
-        <div class="container mx-auto text-center">
+    <section class="py-12 px-6 bg-white overflow-x-hidden">
+        <div class="container mx-auto text-center max-w-full overflow-x-hidden">
             <div data-aos="fade-up">
                 <i class="fas fa-map-marked-alt text-3xl text-blue-700 mb-3"></i>
                 <h2 class="text-xl md:text-2xl font-bold mb-3">Our Presence Across Zambia</h2>
@@ -746,8 +860,8 @@
     </section>
     
     <!-- CTA Section -->
-    <section class="py-12 px-6" style="background-color: #8B0000;">
-        <div class="container mx-auto text-center text-white">
+    <section class="py-12 px-6 overflow-x-hidden" style="background-color: #8B0000;">
+        <div class="container mx-auto text-center text-white max-w-full overflow-x-hidden">
             <h2 class="text-xl md:text-2xl font-bold mb-3" data-aos="fade-up">Ready to Ship?</h2>
             <p class="text-sm mb-5 max-w-xl mx-auto opacity-90" data-aos="fade-up" data-aos-delay="100">Get a free quote today and experience reliable freight solutions since 2001</p>
             <a href="contact.html" class="inline-block bg-white px-6 py-2 rounded-full font-semibold text-sm transition hover:scale-105 shadow-md" style="color: #1E3A8A;" data-aos="fade-up" data-aos-delay="200">
