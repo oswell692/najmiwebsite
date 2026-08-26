@@ -798,7 +798,7 @@
         window.addEventListener('load', animateCounters);
         animateCounters();
         
-        // Initialize Swiper
+        // ===== HERO SWIPER - FIXED: FORCE 1 SLIDE =====
         const heroSwiper = new Swiper('.heroSwiper', {
             loop: true,
             autoplay: {
@@ -813,8 +813,25 @@
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
             },
+            slidesPerView: 1,
+            spaceBetween: 0,
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                    spaceBetween: 0,
+                },
+                640: {
+                    slidesPerView: 1,
+                    spaceBetween: 0,
+                },
+                768: {
+                    slidesPerView: 1,
+                    spaceBetween: 0,
+                },
+            },
         });
         
+        // ===== TESTIMONIAL SWIPER =====
         const testimonialSwiper = new Swiper('.testimonialSwiper', {
             loop: true,
             autoplay: {
