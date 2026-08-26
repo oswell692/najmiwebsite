@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Najmi International Ltd - Freight, Logistics & Clearing Services Zambia</title>
+    <meta name="description" content="Najmi International Ltd provides freight forwarding, logistics, and customs clearing services in Lusaka, Zambia. Import, export, and transit cargo solutions since 2001.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== PREVENT HORIZONTAL SCROLL ON MOBILE ===== */
+        html, body {
+            overflow-x: hidden !important;
+            width: 100% !important;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* ===== FIX HERO IMAGES ZOOMING ON MOBILE ===== */
+        @media (max-width: 768px) {
+            .heroSwiper .swiper-slide .absolute.inset-0.bg-cover {
+                background-size: contain !important;
+                background-color: #0a1628 !important;
+                background-position: center !important;
+            }
+        }
+
+        :root {
+            --primary-blue: #1E3A8A;
+            --primary-blue-dark: #152C6B;
+            --primary-blue-light: #2563EB;
+            --dark-red: #8B0000;
+            --dark-red-dark: #6B0000;
+            --accent-gold: #C6A43F;
+            --accent-gold-light: #D4B85C;
+            --light-bg: #F8F9FA;
+            --card-bg: #FFFFFF;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            font-size: 14px;
+        }
+        
+        #navbar { transition: none !important; }
+        
+        .hero-heading {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #FFFFFF, rgba(255,255,255,0.9));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+        
+        /* Red hero heading for truck slide */
+        .hero-heading-red {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #FF4444, #CC0000);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+        
+        @media (min-width: 768px) {
+            .hero-heading, .hero-heading-red { font-size: 3.5rem !important; }
+        }
+        @media (min-width: 1024px) {
+            .hero-heading, .hero-heading-red { font-size: 4rem !important; }
+        }
+        
+        /* Push content down on ALL slides */
+        .slide-content {
+            margin-top: 100px;
+        }
+        
+        @media (max-width: 768px) {
+            .slide-content {
+                margin-top: 50px;
+            }
+        }
+        
+        /* Full dark overlay that covers entire slide */
+        .slide-overlay-dark {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 5;
+        }
+        
+        @keyframes floatPremium {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+        .float-icon { animation: floatPremium 4s ease-in-out infinite; }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-gold), var(--dark-red));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 200% 200%;
+            animation: gradientShift 5s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* Stats Section - Blue & Green Theme */
+        .stats-bg {
+            background: linear-gradient(135deg, #1E3A8A, #065f46);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stats-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+            animation: rotateBg 20s linear infinite;
+        }
+        
+        @keyframes rotateBg {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .service-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(0,0,0,0.05);
+            background: var(--card-bg);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(30, 58, 138, 0.08), rgba(198, 164, 63, 0.05), transparent);
+            transition: left 0.6s ease;
+            pointer-events: none;
+        }
+        
+        .service-card:hover::before { left: 100%; }
+        .service-card:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 20px 35px -15px rgba(30, 58, 138, 0.2);
+        }
+        
+        .stats-card { 
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(8px);
+            background: rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 1rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .stats-card:hover { 
+            transform: translateY(-5px) scale(1.02);
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .why-card { 
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            background: var(--card-bg);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        .why-card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 20px 30px -12px rgba(30, 58, 138, 0.12);
+            border-color: var(--primary-blue);
+        }
+        
+        .testimonial-card { 
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            background: var(--card-bg);
+        }
+        .testimonial-card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 20px 35px -15px rgba(30, 58, 138, 0.15);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-dark));
+            color: white;
+            padding: 8px 24px;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.4s ease;
+            display: inline-block;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px -8px rgba(30, 58, 138, 0.4);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--dark-red), var(--dark-red-dark));
+            color: white;
+            padding: 8px 24px;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.4s ease;
+            display: inline-block;
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px -8px rgba(139, 0, 0, 0.4);
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            font-size: 1.8rem;
+        }
+        
+        @media (min-width: 768px) {
+            .section-title { font-size: 2.2rem !important; }
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-gold), var(--dark-red));
+            border-radius: 2px;
+        }
+        
+        .counter {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #FFD700;
+        }
+        
+        @media (min-width: 768px) {
+            .counter { font-size: 2.5rem; }
+        }
+        
+        /* New Card Styles */
+        .auth-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .auth-card:hover {
+            transform: translateY(-8px) scale(1.02);
+        }
+        
+        /* Pulse animation for cards */
+        @keyframes cardPulse {
+            0% { box-shadow: 0 0 0 0 rgba(30, 58, 138, 0.2); }
+            70% { box-shadow: 0 0 0 10px rgba(30, 58, 138, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(30, 58, 138, 0); }
+        }
+        .auth-card {
+            animation: cardPulse 2.5s ease-out infinite;
+        }
+        .auth-card:hover {
+            animation: none;
+        }
+        
+        /* Office list styles */
+        .office-item {
+            display: inline-block;
+            padding: 6px 18px;
+            margin: 4px;
+            background: linear-gradient(135deg, #F3F4F6, #F9FAFB);
+            color: #1E3A8A;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(30, 58, 138, 0.1);
+        }
+        .office-item:hover {
+            background: #1E3A8A;
+            color: white;
+            transform: translateY(-2px);
+            border-color: #1E3A8A;
+        }
+    </style>
+</head>
+<body class="bg-[#F8F9FA]">
+    
+    <div id="navbar-placeholder"></div>
+    
+    <!-- Hero Swiper -->
+    <section class="pt-16">
+        <div class="swiper heroSwiper h-[85vh] md:h-[80vh]">
+            <div class="swiper-wrapper">
+                <!-- FIRST SLIDE - Truck Image -->
+                <div class="swiper-slide relative">
+                    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('images/truck.png'); background-size: cover; background-position: center;"></div>
+                    <div class="slide-overlay-dark"></div>
+                    <div class="relative z-20 flex flex-col justify-center items-center h-full text-white text-center px-4 slide-content">
+                        <div class="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-xs mb-3" data-aos="fade-up">
+                            
+                        </div>
+                        <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 hero-heading-red" data-aos="fade-up" data-aos-delay="100">
+                            Najmi International Ltd
+                        </h1>
+                        <p class="text-base md:text-lg mb-6 max-w-2xl" data-aos="fade-up" data-aos-delay="200">
+                            Licensed Shipping, Freight Forwarding & Customs Clearing Agent
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-3 justify-center" data-aos="fade-up" data-aos-delay="300">
+                            <a href="contact.html" class="btn-primary">
+                                Inquire Now <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                            <a href="services.html" class="btn-secondary">
+                                Our Services </i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- SECOND SLIDE - Plane Image -->
+                <div class="swiper-slide relative">
+                    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('images/plane.png'); background-size: cover; background-position: center;"></div>
+                    <div class="slide-overlay-dark"></div>
+                    <div class="relative z-20 flex flex-col justify-center items-center h-full text-white text-center px-4 slide-content">
+                        <div class="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-xs mb-3" data-aos="fade-up">
+                            
+                        </div>
+                        <h2 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 hero-heading" data-aos="fade-up" data-aos-delay="100">
+                            Global Air Cargo
+                        </h2>
+                        <p class="text-base md:text-lg mb-6 max-w-2xl" data-aos="fade-up" data-aos-delay="200">
+                            Fast and reliable air freight solutions worldwide
+                        </p>
+                        <div data-aos="fade-up" data-aos-delay="300">
+                            <a href="services.html" class="btn-secondary">
+                                Learn More <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- THIRD SLIDE - Container Ship Image -->
+                <div class="swiper-slide relative">
+                    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920&h=1080&fit=crop'); background-size: cover;"></div>
+                    <div class="slide-overlay-dark"></div>
+                    <div class="relative z-20 flex flex-col justify-center items-center h-full text-white text-center px-4 slide-content">
+                        <div class="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-xs mb-3" data-aos="fade-up">
+                            <i class="fas fa-trophy mr-1"></i> Since 2001
+                        </div>
+                        <h2 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 hero-heading" data-aos="fade-up" data-aos-delay="100">
+                            On Time Logistic Services
+                        </h2>
+                        <p class="text-base md:text-lg mb-6 max-w-2xl" data-aos="fade-up" data-aos-delay="200">
+                            Reliable cargo solutions across Africa and worldwide
+                        </p>
+                        <div data-aos="fade-up" data-aos-delay="300">
+                            <a href="services.html" class="btn-secondary">
+                                Learn More <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FOURTH SLIDE - Container Ship at Sea -->
+                <div class="swiper-slide relative">
+                    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1920&h=1080&fit=crop'); background-size: cover;"></div>
+                    <div class="slide-overlay-dark"></div>
+                    <div class="relative z-20 flex flex-col justify-center items-center h-full text-white text-center px-4 slide-content">
+                        <div class="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-xs mb-3" data-aos="fade-up">
+                            <i class="fas fa-globe-africa mr-1"></i> FIATA & ZCFAA Member
+                        </div>
+                        <h2 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 hero-heading" data-aos="fade-up" data-aos-delay="100">
+                            Global Logistics Partner
+                        </h2>
+                        <p class="text-base md:text-lg mb-6 max-w-2xl" data-aos="fade-up" data-aos-delay="200">
+                            Connecting Zambia to the world through seamless freight solutions
+                        </p>
+                        <div data-aos="fade-up" data-aos-delay="300">
+                            <a href="contact.html" class="btn-primary">
+                                Contact Us <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next text-white"></div>
+            <div class="swiper-button-prev text-white"></div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section class="py-16 px-6">
+        <div class="container mx-auto">
+            <div class="text-center mb-10">
+                <span class="text-xs uppercase tracking-wider text-[#1E3A8A] font-semibold" data-aos="fade-up">What We Offer</span>
+                <h2 class="text-2xl md:text-3xl font-bold mt-2 section-title" data-aos="fade-up" data-aos-delay="50">
+                    Our <span class="gradient-text">Services</span>
+                </h2>
+                <p class="text-gray-600 text-sm max-w-2xl mx-auto mt-4" data-aos="fade-up" data-aos-delay="100">
+                    Comprehensive freight, logistics and clearing solutions since 2001
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <!-- Shipping -->
+                <div class="service-card bg-white rounded-xl p-5 shadow-md" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mb-3 float-icon">
+                        <i class="fas fa-ship text-xl text-blue-700"></i>
+                    </div>
+                    <h3 class="font-bold text-base mb-2">Shipping</h3>
+                    <p class="text-gray-600 text-xs leading-relaxed">The company has the capacity to ship consignment from all over the globe.</p>
+                </div>
+                
+                <!-- Freight Forwarding -->
+                <div class="service-card bg-white rounded-xl p-5 shadow-md" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 rounded-xl bg-red-100 flex items-center justify-center mb-3 float-icon" style="animation-delay: 0.5s;">
+                        <i class="fas fa-truck-ramp-box text-xl text-red-700"></i>
+                    </div>
+                    <h3 class="font-bold text-base mb-2">Freight Forwarding</h3>
+                    <p class="text-gray-600 text-xs leading-relaxed">Professional freight forwarding services for import and export needs across borders.</p>
+                </div>
+                
+                <!-- Logistics -->
+                <div class="service-card bg-white rounded-xl p-5 shadow-md" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mb-3 float-icon" style="animation-delay: 1s;">
+                        <i class="fas fa-network-wired text-xl text-blue-700"></i>
+                    </div>
+                    <h3 class="font-bold text-base mb-2">Logistics</h3>
+                    <p class="text-gray-600 text-xs leading-relaxed">We provide multi-modal logistics services for seamless supply chain management.</p>
+                </div>
+                
+                <!-- Customs Clearing -->
+                <div class="service-card bg-white rounded-xl p-5 shadow-md" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-12 h-12 rounded-xl bg-red-100 flex items-center justify-center mb-3 float-icon" style="animation-delay: 1.5s;">
+                        <i class="fas fa-passport text-xl text-red-700"></i>
+                    </div>
+                    <h3 class="font-bold text-base mb-2">Customs Clearing</h3>
+                    <p class="text-gray-600 text-xs leading-relaxed">Expert customs clearance and documentation services for smooth border crossings.</p>
+                </div>
+                
+                <!-- Transit Cargo -->
+                <div class="service-card bg-white rounded-xl p-5 shadow-md" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mb-3 float-icon" style="animation-delay: 2s;">
+                        <i class="fas fa-boxes text-xl text-blue-700"></i>
+                    </div>
+                    <h3 class="font-bold text-base mb-2">Transit Cargo</h3>
+                    <p class="text-gray-600 text-xs leading-relaxed">Specialized handling of cargo for transit through Zambian borders.</p>
+                </div>
+                
+                <!-- Warehousing -->
+                <div class="service-card bg-white rounded-xl p-5 shadow-md" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-12 h-12 rounded-xl bg-red-100 flex items-center justify-center mb-3 float-icon" style="animation-delay: 2.5s;">
+                        <i class="fas fa-warehouse text-xl text-red-700"></i>
+                    </div>
+                    <h3 class="font-bold text-base mb-2">Warehousing</h3>
+                    <p class="text-gray-600 text-xs leading-relaxed">Customs and Excise Licensed Transit Area with secured storage facilities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Stats Section - Blue & Green Theme -->
+    <section class="stats-bg py-12 px-6 relative overflow-hidden">
+        <div class="container mx-auto relative z-10">
+            <div class="text-center mb-8">
+                <span class="text-xs uppercase tracking-wider text-white/80 font-semibold" data-aos="fade-up">Our Impact</span>
+                <h2 class="text-2xl md:text-3xl font-bold mt-2 text-white" data-aos="fade-up" data-aos-delay="50">Numbers That <span class="text-[#FFD700]">Speak</span></h2>
+            </div>
+            <div class="grid md:grid-cols-4 gap-4 text-center text-white">
+                <div class="stats-card" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="text-3xl md:text-4xl font-extrabold mb-1 counter" data-target="1500">0</div>
+                    <p class="text-[10px] uppercase tracking-wider text-white/80">Containers Handled</p>
+                </div>
+                <div class="stats-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="text-3xl md:text-4xl font-extrabold mb-1 counter" data-target="350">0</div>
+                    <p class="text-[10px] uppercase tracking-wider text-white/80">Corporate Clients</p>
+                </div>
+                <div class="stats-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="text-3xl md:text-4xl font-extrabold mb-1 counter" data-target="18">0</div>
+                    <p class="text-[10px] uppercase tracking-wider text-white/80">African Countries</p>
+                </div>
+                <div class="stats-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="text-3xl md:text-4xl font-extrabold mb-1 counter" data-target="24">0</div>
+                    <p class="text-[10px] uppercase tracking-wider text-white/80">Years of Excellence</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Why Choose Us -->
+    <section class="py-16 px-6 bg-[#F8F9FA]">
+        <div class="container mx-auto">
+            <div class="text-center mb-10">
+                <span class="text-xs uppercase tracking-wider text-[#1E3A8A] font-semibold" data-aos="fade-up">Why Choose Us</span>
+                <h2 class="text-2xl md:text-3xl font-bold mt-2 section-title" data-aos="fade-up" data-aos-delay="50">Why Choose <span class="gradient-text">Najmi International</span>?</h2>
+                <p class="text-gray-600 text-sm max-w-2xl mx-auto mt-4" data-aos="fade-up" data-aos-delay="100">Your trusted partner in freight and logistics since 2001</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="why-card text-center p-5 rounded-xl bg-white shadow-sm" data-aos="flip-left" data-aos-delay="0">
+                    <div class="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-3 bg-blue-50">
+                        <i class="fas fa-map-marked-alt text-xl text-blue-700"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">Strategic Location</h3>
+                    <p class="text-gray-600 text-xs leading-relaxed">Based in Lusaka with offices at 13 border posts across Zambia</p>
+                </div>
+                
+                <div class="why-card text-center p-5 rounded-xl bg-white shadow-sm" data-aos="flip-left" data-aos-delay="100">
+                    <div class="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-3 bg-red-50">
+                        <i class="fas fa-file-invoice-dollar text-xl text-red-700"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">Customs Expertise</h3>
+                    <p class="text-gray-600 text-xs leading-relaxed">Registered FIATA & ZCFAA members with deep regulatory knowledge</p>
+                </div>
+                
+                <div class="why-card text-center p-5 rounded-xl bg-white shadow-sm" data-aos="flip-left" data-aos-delay="200">
+                    <div class="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-3 bg-blue-50">
+                        <i class="fas fa-shield-alt text-xl text-blue-700"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">Licensed & Bonded</h3>
+                    <p class="text-gray-600 text-xs leading-relaxed">Customs Bond licensed for Removals in Bond (R.I.T/R.I.B)</p>
+                </div>
+                
+                <div class="why-card text-center p-5 rounded-xl bg-white shadow-sm" data-aos="flip-left" data-aos-delay="300">
+                    <div class="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-3 bg-red-50">
+                        <i class="fas fa-headset text-xl text-red-700"></i>
+                    </div>
+                    <h3 class="font-bold mb-2">Free Consultancy</h3>
+                    <p class="text-gray-600 text-xs leading-relaxed">Free consultancy on all customs and excise related inquiries</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials -->
+    <section class="py-16 px-6">
+        <div class="container mx-auto">
+            <div class="text-center mb-10">
+                <span class="text-xs uppercase tracking-wider text-[#1E3A8A] font-semibold" data-aos="fade-up">Testimonials</span>
+                <h2 class="text-2xl md:text-3xl font-bold mt-2 section-title" data-aos="fade-up" data-aos-delay="50">What Our <span style="color: var(--primary-blue);">Clients Say</span></h2>
+                <p class="text-gray-600 text-sm max-w-2xl mx-auto mt-4" data-aos="fade-up" data-aos-delay="100">Trusted by businesses across Africa</p>
+            </div>
+            
+            <div class="swiper testimonialSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="testimonial-card bg-white rounded-xl p-6 shadow-md text-center">
+                            <div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-quote-left text-lg text-blue-700"></i>
+                            </div>
+                            <p class="text-gray-600 mb-4 leading-relaxed text-sm">"Najmi International has been our trusted logistics partner for years. Their customs clearing expertise saved us countless delays."</p>
+                            <h4 class="font-bold">John Banda</h4>
+                            <p class="text-gray-500 text-xs">Import Manager, Lusaka</p>
+                            <div class="flex justify-center mt-2 gap-1">
+                                <i class="fas fa-star text-[#C6A43F] text-[10px]"></i>
+                                <i class="fas fa-star text-[#C6A43F] text-[10px]"></i>
+                                <i class="fas fa-star text-[#C6A43F] text-[10px]"></i>
+                                <i class="fas fa-star text-[#C6A43F] text-[10px]"></i>
+                                <i class="fas fa-star text-[#C6A43F] text-[10px]"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="testimonial-card bg-white rounded-xl p-6 shadow-md text-center">
+                            <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-quote-left text-lg text-red-700"></i>
+                            </div>
+                            <p class="text-gray-600 mb-4 leading-relaxed text-sm">"Professional, efficient, and reliable. They handle all our freight forwarding needs from start to finish."</p>
+                            <h4 class="font-bold">Sarah Mwila</h4>
+                            <p class="text-gray-500 text-xs">CEO, Trading Company</p>
+                            <div class="flex justify-center mt-2 gap-1">
+                                <i class="fas fa-star text-[#C6A43F] text-[10px]"></i>
+                                <i class="fas fa-star text-[#C6A43F] text-[10px]"></i>
+                                <i class="fas fa-star text-[#C6A43F] text-[10px]"></i>
+                                <i class="fas fa-star text-[#C6A43F] text-[10px]"></i>
+                                <i class="fas fa-star text-[#C6A43F] text-[10px]"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="testimonial-card bg-white rounded-xl p-6 shadow-md text-center">
+                            <div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-quote-left text-lg text-blue-700"></i>
+                            </div>
+                            <p class="text-gray-600 mb-4 leading-relaxed text-sm">"The team at Najmi understands the complexities of cross-border logistics. Highly recommended!"</p>
+                            <h4 class="font-bold">Michael Phiri</h4>
+                            <p class="text-gray-500 text-xs">Logistics Director</p>
+                            <div class="flex justify-center mt-2 gap-1">
+                                <i class="fas fa-star text-[#C6A43F] text-[10px]"></i>
+                                <i class="fas fa-star text-[#C6A43F] text-[10px]"></i>
+                                <i class="fas fa-star text-[#C6A43F] text-[10px]"></i>
+                                <i class="fas fa-star text-[#C6A43F] text-[10px]"></i>
+                                <i class="fas fa-star text-[#C6A43F] text-[10px]"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination mt-6"></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Coverage Section - WITH FLAGS -->
+    <section class="py-16 px-6 bg-[#F8F9FA]">
+        <div class="container mx-auto">
+            <div class="text-center mb-10">
+                <span class="text-xs uppercase tracking-wider text-[#1E3A8A] font-semibold" data-aos="fade-up">Where We Operate</span>
+                <h2 class="text-2xl md:text-3xl font-bold mt-2 section-title" data-aos="fade-up" data-aos-delay="50">Our <span style="color: var(--primary-blue);">Presence</span></h2>
+                <p class="text-gray-600 text-sm max-w-2xl mx-auto mt-4" data-aos="fade-up" data-aos-delay="100">We have established partners beyond Africa to maintain quick service delivery</p>
+            </div>
+            
+            <!-- International Partners - WITH FLAGS -->
+            <div class="mb-12" data-aos="fade-up" data-aos-delay="150">
+                <h3 class="text-center text-lg font-bold mb-6">International <span class="text-blue-700">Partners</span></h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                    <div class="bg-white rounded-xl p-4 text-center shadow-md hover:shadow-lg transition group">
+                        <img src="https://flagcdn.com/w80/tz.png" alt="Tanzania Flag" class="w-12 h-8 mx-auto mb-2 shadow-sm rounded object-cover group-hover:scale-105 transition">
+                        <p class="font-semibold text-sm">Tanzania</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-4 text-center shadow-md hover:shadow-lg transition group">
+                        <img src="https://flagcdn.com/w80/cn.png" alt="China Flag" class="w-12 h-8 mx-auto mb-2 shadow-sm rounded object-cover group-hover:scale-105 transition">
+                        <p class="font-semibold text-sm">China</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-4 text-center shadow-md hover:shadow-lg transition group">
+                        <img src="https://flagcdn.com/w80/ae.png" alt="UAE Flag" class="w-12 h-8 mx-auto mb-2 shadow-sm rounded object-cover group-hover:scale-105 transition">
+                        <p class="font-semibold text-sm">UAE</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-4 text-center shadow-md hover:shadow-lg transition group">
+                        <img src="https://flagcdn.com/w80/za.png" alt="South Africa Flag" class="w-12 h-8 mx-auto mb-2 shadow-sm rounded object-cover group-hover:scale-105 transition">
+                        <p class="font-semibold text-sm">South Africa</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-4 text-center shadow-md hover:shadow-lg transition group">
+                        <img src="https://flagcdn.com/w80/eu.png" alt="European Union Flag" class="w-12 h-8 mx-auto mb-2 shadow-sm rounded object-cover group-hover:scale-105 transition">
+                        <p class="font-semibold text-sm">Europe</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-4 text-center shadow-md hover:shadow-lg transition group">
+                        <div class="w-12 h-8 mx-auto mb-2 flex items-center justify-center">
+                            <i class="fas fa-globe-asia text-3xl text-blue-600 group-hover:scale-105 transition"></i>
+                        </div>
+                        <p class="font-semibold text-sm">Far East</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Zambia Authorized Services - NEW BEAUTIFUL CARDS -->
+            <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="text-center text-lg font-bold mb-6">In Zambia we are authorized to provide:</h3>
+                <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                    <!-- Card 1 - Final Clearances -->
+                    <div class="auth-card bg-white rounded-2xl p-5 shadow-lg hover:shadow-2xl transition-all duration-300 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-500/10 to-transparent rounded-bl-full"></div>
+                        <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-4 shadow-md group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-file-invoice text-xl text-white"></i>
+                        </div>
+                        <h4 class="text-md font-bold text-gray-800 mb-1">Final Clearances</h4>
+                        <p class="text-xs text-gray-500">Imports and Exports</p>
+                        <div class="mt-3 inline-block px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-xs font-medium">ZRA Approved</div>
+                    </div>
+                    
+                    <!-- Card 2 - Removals in Bond -->
+                    <div class="auth-card bg-white rounded-2xl p-5 shadow-lg hover:shadow-2xl transition-all duration-300 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-red-500/10 to-transparent rounded-bl-full"></div>
+                        <div class="w-14 h-14 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center mb-4 shadow-md group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-file-contract text-xl text-white"></i>
+                        </div>
+                        <h4 class="text-md font-bold text-gray-800 mb-1">Removals in Bond</h4>
+                        <p class="text-xs text-gray-500">R.I.T / R.I.B</p>
+                        <div class="mt-3 inline-block px-3 py-1 bg-red-100 text-red-600 rounded-full text-xs font-medium">Customs Bond Licensed</div>
+                    </div>
+                    
+                    <!-- Card 3 - Bonded Warehousing -->
+                    <div class="auth-card bg-white rounded-2xl p-5 shadow-lg hover:shadow-2xl transition-all duration-300 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-emerald-500/10 to-transparent rounded-bl-full"></div>
+                        <div class="w-14 h-14 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center mb-4 shadow-md group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-warehouse text-xl text-white"></i>
+                        </div>
+                        <h4 class="text-md font-bold text-gray-800 mb-1">Bonded Warehousing</h4>
+                        <p class="text-xs text-gray-500">Secured Storage</p>
+                        <div class="mt-3 inline-block px-3 py-1 bg-emerald-100 text-emerald-600 rounded-full text-xs font-medium">24/7 Security</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Border Offices Section - Clean Simple List -->
+    <section class="py-12 px-6 bg-white">
+        <div class="container mx-auto text-center">
+            <div data-aos="fade-up">
+                <i class="fas fa-map-marked-alt text-3xl text-blue-700 mb-3"></i>
+                <h2 class="text-xl md:text-2xl font-bold mb-3">Our Presence Across Zambia</h2>
+                <div class="w-16 h-0.5 bg-gradient-to-r from-blue-700 to-red-700 mx-auto mb-4"></div>
+                <p class="text-gray-600 text-sm max-w-2xl mx-auto mb-8">
+                    Our head office is situated in Lusaka, Zambia with offices at all major border posts
+                </p>
+                <div class="flex flex-wrap justify-center gap-2 max-w-3xl mx-auto">
+                    <span class="office-item">Chanida</span>
+                    <span class="office-item">Chirundu</span>
+                    <span class="office-item">Kazungula</span>
+                    <span class="office-item">Kasumbalesa</span>
+                    <span class="office-item">Katima Mulilo</span>
+                    <span class="office-item">Livingstone</span>
+                    <span class="office-item">Lufuwa</span>
+                    <span class="office-item">Mokambo</span>
+                    <span class="office-item">Mwami</span>
+                    <span class="office-item">Nakonde</span>
+                    <span class="office-item">Nchelenge</span>
+                    <span class="office-item">Sakanya</span>
+                    <span class="office-item">Victoria Falls</span>
+                </div>
+                <div class="mt-6">
+                    <span class="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-xs">
+                        <i class="fas fa-building"></i> 13 Border Offices Nationwide
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="py-12 px-6" style="background-color: #8B0000;">
+        <div class="container mx-auto text-center text-white">
+            <h2 class="text-xl md:text-2xl font-bold mb-3" data-aos="fade-up">Ready to Ship?</h2>
+            <p class="text-sm mb-5 max-w-xl mx-auto opacity-90" data-aos="fade-up" data-aos-delay="100">Get a free quote today and experience reliable freight solutions since 2001</p>
+            <a href="contact.html" class="inline-block bg-white px-6 py-2 rounded-full font-semibold text-sm transition hover:scale-105 shadow-md" style="color: #1E3A8A;" data-aos="fade-up" data-aos-delay="200">
+                Inquire<i class="fas fa-arrow-right ml-2 text-xs"></i>
+            </a>
+        </div>
+    </section>
+    
+    <div id="footer-placeholder"></div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/include.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true, offset: 100 });
+        
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            const triggerBottom = window.innerHeight * 0.8;
+            
+            counters.forEach(counter => {
+                if (counter.getAttribute('data-animated') === 'true') return;
+                
+                const rect = counter.getBoundingClientRect();
+                if (rect.top < triggerBottom) {
+                    counter.setAttribute('data-animated', 'true');
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    let current = 0;
+                    const increment = target / 50;
+                    
+                    const updateCounter = () => {
+                        if (current < target) {
+                            current += increment;
+                            counter.textContent = Math.ceil(current);
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.textContent = target;
+                        }
+                    };
+                    updateCounter();
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', animateCounters);
+        window.addEventListener('load', animateCounters);
+        animateCounters();
+        
+        // Initialize Swiper
+        const heroSwiper = new Swiper('.heroSwiper', {
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+        
+        const testimonialSwiper = new Swiper('.testimonialSwiper', {
+            loop: true,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                640: { slidesPerView: 1 },
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+            },
+        });
+    </script>
+</body>
+</html>
