@@ -101,42 +101,31 @@
         left: 0 !important;
         width: 100% !important;
         height: 70px !important;
-        background: transparent !important;
+        background: rgba(255, 255, 255, 0.85) !important;
+        backdrop-filter: blur(8px) !important;
+        -webkit-backdrop-filter: blur(8px) !important;
         transition: none !important;
         overflow: visible !important;
         z-index: 9999 !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
     }
 
-    /* LIQUID GLASS FULL WIDTH - MORE COLORLESS (REDUCED OPACITY) */
+    /* LIQUID GLASS FULL WIDTH - REMOVED */
     .glass-nav-full {
-        background: rgba(255, 255, 255, 0.04) !important;
-        backdrop-filter: blur(8px) !important;
-        -webkit-backdrop-filter: blur(8px) !important;
+        background: transparent !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
         border: none !important;
         height: 100% !important;
         position: relative !important;
     }
     
-    /* LIQUID SHIMMER EFFECT - MORE SUBTLE */
+    /* LIQUID SHIMMER EFFECT - REMOVED */
     .glass-nav-full::before {
-        content: '' !important;
-        position: absolute !important;
-        top: 0 !important;
-        left: -100% !important;
-        width: 100% !important;
-        height: 100% !important;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent) !important;
-        animation: liquidShimmer 6s ease-in-out infinite !important;
-        pointer-events: none !important;
-    }
-    
-    @keyframes liquidShimmer {
-        0% { left: -100%; }
-        40% { left: 100%; }
-        100% { left: 100%; }
+        display: none !important;
     }
 
-    /* ========== PREMIUM LOGO TITLE STYLES - SAME WIDTH ========== */
+    /* ========== PREMIUM LOGO TITLE STYLES ========== */
     .logo-wrapper-nav {
         z-index: 3 !important;
     }
@@ -199,12 +188,14 @@
         letter-spacing: 3px !important;
     }
     
-    /* CYCLE CONTAINER - MORE COLORLESS */
+    /* ===== BUTTON CONTAINER - KEPT LIQUID GLASS ===== */
     .nav-cycle-container {
-        background: rgba(255, 255, 255, 0.06) !important;
-        backdrop-filter: blur(8px) !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        background: rgba(255, 255, 255, 0.15) !important;
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
         transition: all 0.3s ease !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06) !important;
     }
     
     /* Nav Link Styles - REMOVED hover expansion/transform */
@@ -234,8 +225,8 @@
     
     /* Scroll enlarge effect */
     body.scrolled .nav-cycle-container {
-        background: rgba(255, 255, 255, 0.1) !important;
-        backdrop-filter: blur(10px) !important;
+        background: rgba(255, 255, 255, 0.2) !important;
+        backdrop-filter: blur(12px) !important;
     }
     
     body.scrolled .nav-link-glass {

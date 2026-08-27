@@ -24,6 +24,12 @@
         html, body {
             overflow-x: hidden !important;
             width: 100% !important;
+            max-width: 100% !important;
+        }
+        
+        * {
+            max-width: 100%;
+            box-sizing: border-box;
         }
         
         img {
@@ -60,6 +66,41 @@
             display: block;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
+
+        /* ===== MOBILE RESPONSIVE FIXES ===== */
+        @media (max-width: 768px) {
+            .grid.md\:grid-cols-2 {
+                grid-template-columns: 1fr !important;
+            }
+            .grid.md\:grid-cols-5 {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+            .gap-10 {
+                gap: 1.5rem !important;
+            }
+            .text-3xl {
+                font-size: 1.8rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid.md\:grid-cols-5 {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+            .gap-5 {
+                gap: 0.75rem !important;
+            }
+            .card-icon-img {
+                width: 48px !important;
+                height: 48px !important;
+            }
+            .value-card .text-lg {
+                font-size: 0.9rem !important;
+            }
+            .value-card .text-sm {
+                font-size: 0.7rem !important;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -77,7 +118,7 @@
 
     
     <section class="py-12 px-6">
-        <div class="container mx-auto">
+        <div class="container mx-auto max-w-full">
             <div class="grid md:grid-cols-2 gap-10 items-center">
                 <div data-aos="fade-right">
                     <h2 class="text-2xl md:text-3xl font-bold mb-4">
@@ -101,7 +142,7 @@
 
     
     <section class="py-12 px-6 bg-gray-100">
-        <div class="container mx-auto">
+        <div class="container mx-auto max-w-full">
             <div class="grid md:grid-cols-2 gap-6">
                 <!-- Mission Card -->
                 <div class="mission-card bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 text-center" data-aos="fade-right">
@@ -126,7 +167,7 @@
 
     
     <section class="py-12 px-6">
-        <div class="container mx-auto">
+        <div class="container mx-auto max-w-full">
             <div class="text-center mb-10">
                 <h2 class="text-2xl md:text-3xl font-bold mb-2" data-aos="fade-up">Our <span class="text-maroon-600">Core Values</span></h2>
                 <p class="text-gray-600 text-sm" data-aos="fade-up" data-aos-delay="100">The principles that guide our business</p>
@@ -173,7 +214,7 @@
 
     
     <section class="py-12 px-6 bg-maroon-600">
-        <div class="container mx-auto text-center text-white">
+        <div class="container mx-auto text-center text-white max-w-full">
             <h2 class="text-2xl md:text-3xl font-bold mb-3" data-aos="fade-up">Ready to Ship with Najmi International?</h2>
             <p class="text-sm md:text-base mb-6 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">Contact us for efficient freight solutions that meet all your shipping needs</p>
             <a href="contact.html" class="btn-outline text-sm" style="background: white; color: var(--primary-maroon); border-color: var(--primary-maroon); padding: 8px 24px;" data-aos="fade-up" data-aos-delay="200">

@@ -32,19 +32,6 @@
             height: auto;
         }
 
-        /* Fix for grids that might overflow */
-        .container {
-            max-width: 100% !important;
-            overflow-x: hidden !important;
-            padding-left: 16px !important;
-            padding-right: 16px !important;
-        }
-
-        .grid {
-            max-width: 100% !important;
-            overflow-x: hidden !important;
-        }
-
         #navbar {
             transition: none !important;
         }
@@ -109,8 +96,8 @@
         /* ===== MOBILE FIXES ===== */
         @media (max-width: 768px) {
             .container {
-                padding-left: 12px !important;
-                padding-right: 12px !important;
+                padding-left: 16px !important;
+                padding-right: 16px !important;
             }
             
             .grid.md\:grid-cols-2 {
@@ -137,6 +124,14 @@
             .gap-4 {
                 gap: 8px !important;
             }
+            
+            .text-3xl {
+                font-size: 1.8rem !important;
+            }
+            
+            .text-2xl {
+                font-size: 1.25rem !important;
+            }
         }
 
         @media (max-width: 480px) {
@@ -155,17 +150,42 @@
             .border-country .text-sm {
                 font-size: 0.65rem !important;
             }
+            
+            .service-card .h-40 {
+                height: 160px !important;
+            }
+            
+            .service-card .p-5 {
+                padding: 1rem !important;
+            }
+            
+            .service-card .text-xl {
+                font-size: 1rem !important;
+            }
+            
+            .service-card .text-sm {
+                font-size: 0.7rem !important;
+            }
+            
+            .team-image-container img {
+                height: 200px !important;
+            }
+            
+            .highlight-list li {
+                font-size: 0.75rem !important;
+                padding: 6px 10px !important;
+            }
         }
     </style>
 </head>
 
-<body class="bg-gray-50 overflow-x-hidden">
+<body class="bg-gray-50">
 
     <div id="navbar-placeholder"></div>
 
     <!-- Hero Section -->
-    <section class="pt-20 pb-12 bg-blue-700 overflow-x-hidden">
-        <div class="container mx-auto px-6 text-center text-white max-w-full overflow-x-hidden">
+    <section class="pt-20 pb-12 bg-blue-700">
+        <div class="container mx-auto px-6 text-center text-white max-w-full">
             <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-3" data-aos="fade-up">Our Services & Facilities
             </h1>
             <p class="text-base md:text-lg max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">Comprehensive
@@ -174,13 +194,13 @@
     </section>
 
     <!-- Main Services Grid - Shipping, Freight Forwarding, Logistics, Customs Clearing -->
-<section class="py-12 px-6 overflow-x-hidden">
-    <div class="container mx-auto max-w-full overflow-x-hidden">
+<section class="py-12 px-6">
+    <div class="container mx-auto max-w-full">
         <div class="text-center mb-10" data-aos="fade-up">
             <h2 class="text-2xl md:text-3xl font-bold mb-2">What <span class="text-blue-600">We Do</span></h2>
             <div class="w-20 h-1 bg-maroon-600 mx-auto mt-2 rounded-full"></div>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 overflow-x-hidden">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <!-- Shipping - Container Ship Image -->
             <div class="service-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="0">
                 <div class="h-40 overflow-hidden">
@@ -229,14 +249,14 @@
 </section>
 
     <!-- Customs Clearance & Bond Services -->
-    <section class="py-12 px-6 bg-gray-100 overflow-x-hidden">
-        <div class="container mx-auto max-w-full overflow-x-hidden">
+    <section class="py-12 px-6 bg-gray-100">
+        <div class="container mx-auto max-w-full">
             <div class="text-center mb-10" data-aos="fade-up">
                 <h2 class="text-2xl md:text-3xl font-bold mb-2">Customs <span class="text-maroon-600">Clearance &amp;
                         Bond</span> Services</h2>
                 <div class="w-20 h-1 bg-blue-600 mx-auto mt-2 rounded-full"></div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 overflow-x-hidden">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Customs Clearance -->
                 <div class="bg-white rounded-xl p-6 shadow-lg" data-aos="fade-right">
                     <div class="flex items-center gap-3 mb-4">
@@ -289,9 +309,9 @@
     </section>
 
     <!-- Transportation & Warehousing -->
-    <section class="py-12 px-6 overflow-x-hidden">
-        <div class="container mx-auto max-w-full overflow-x-hidden">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 overflow-x-hidden">
+    <section class="py-12 px-6">
+        <div class="container mx-auto max-w-full">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Transportation Card -->
                 <div class="bg-gradient-to-r from-blue-700 to-blue-800 rounded-xl p-8 text-white shadow-xl"
                     data-aos="fade-right">
@@ -320,14 +340,14 @@
     </section>
 
     <!-- Storage & Delivery -->
-    <section class="py-12 px-6 bg-gray-100 overflow-x-hidden">
-        <div class="container mx-auto max-w-full overflow-x-hidden">
+    <section class="py-12 px-6 bg-gray-100">
+        <div class="container mx-auto max-w-full">
             <div class="text-center mb-10" data-aos="fade-up">
                 <h2 class="text-2xl md:text-3xl font-bold mb-2">Storage <span class="text-blue-600">&amp; Delivery</span>
                 </h2>
                 <div class="w-20 h-1 bg-maroon-600 mx-auto mt-2 rounded-full"></div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 overflow-x-hidden">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="bg-white rounded-xl p-6 shadow-lg flex items-start gap-4" data-aos="fade-right">
                     <i class="fas fa-warehouse text-3xl text-blue-600"></i>
                     <div>
@@ -349,15 +369,15 @@
     </section>
 
     <!-- Our Presence - Border Offices -->
-    <section class="py-12 px-6 overflow-x-hidden">
-        <div class="container mx-auto max-w-full overflow-x-hidden">
+    <section class="py-12 px-6">
+        <div class="container mx-auto max-w-full">
             <div class="text-center mb-10" data-aos="fade-up">
                 <h2 class="text-2xl md:text-3xl font-bold mb-2">Our <span class="text-maroon-600">Presence</span></h2>
                 <div class="w-20 h-1 bg-blue-600 mx-auto mt-2 rounded-full"></div>
                 <p class="text-gray-600 text-sm mt-3">Our head office is situated in Lusaka, Zambia with offices at
                     these borders:</p>
             </div>
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 overflow-x-hidden">
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
                 <div class="border-country bg-white rounded-lg p-3 text-center shadow-sm hover:shadow-md transition">
                     <span class="text-sm font-medium">Chaninda</span></div>
                 <div class="border-country bg-white rounded-lg p-3 text-center shadow-sm hover:shadow-md transition">
@@ -400,15 +420,15 @@
     </section>
 
     <!-- International Partners - With Actual Country Flags -->
-    <section class="py-12 px-6 bg-gray-100 overflow-x-hidden">
-        <div class="container mx-auto max-w-full overflow-x-hidden">
+    <section class="py-12 px-6 bg-gray-100">
+        <div class="container mx-auto max-w-full">
             <div class="text-center mb-10" data-aos="fade-up">
                 <h2 class="text-2xl md:text-3xl font-bold mb-2">Global <span class="text-blue-600">Partners</span></h2>
                 <div class="w-20 h-1 bg-maroon-600 mx-auto mt-2 rounded-full"></div>
                 <p class="text-gray-600 text-sm mt-3">We have established partners beyond Africa to maintain quick
                     service delivery in the following countries:</p>
             </div>
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6 gap-4 overflow-x-hidden">
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6 gap-4">
                 <!-- Tanzania - Flag -->
                 <div class="bg-white rounded-xl p-4 text-center shadow-md hover:shadow-lg transition group">
                     <img src="https://flagcdn.com/w80/tz.png" alt="Tanzania Flag"
@@ -450,9 +470,9 @@
         </div>
     </section>
     <!-- Tailor Made Customer Services -->
-    <section class="py-12 px-6 overflow-x-hidden">
-        <div class="container mx-auto max-w-full overflow-x-hidden">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 overflow-x-hidden">
+    <section class="py-12 px-6">
+        <div class="container mx-auto max-w-full">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="bg-gradient-to-r from-blue-700 to-blue-800 rounded-xl p-8 text-white shadow-xl"
                     data-aos="fade-right">
                     <i class="fas fa-gem text-3xl mb-4"></i>
@@ -481,15 +501,15 @@
     </section>
 
     <!-- Professional Team - WITH LOCAL IMAGE (teamwork.webp) -->
-    <section class="py-12 px-6 bg-gray-100 overflow-x-hidden">
-        <div class="container mx-auto max-w-full overflow-x-hidden">
+    <section class="py-12 px-6 bg-gray-100">
+        <div class="container mx-auto max-w-full">
             <div class="text-center mb-10" data-aos="fade-up">
                 <i class="fas fa-users text-4xl text-blue-600 mb-4"></i>
                 <h2 class="text-2xl md:text-3xl font-bold mb-3">Our Professional Team</h2>
                 <div class="w-20 h-1 bg-maroon-600 mx-auto mt-2 rounded-full mb-4"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center overflow-x-hidden">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
                 <!-- Team Image - Local teamwork.webp file -->
                 <div class="team-image-container" data-aos="fade-right">
                     <img src="images/teamwork.webp" alt="Diverse team stacking hands together in unity"
@@ -518,8 +538,8 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="py-12 px-6 bg-maroon-600 overflow-x-hidden">
-        <div class="container mx-auto text-center text-white max-w-full overflow-x-hidden">
+    <section class="py-12 px-6 bg-maroon-600">
+        <div class="container mx-auto text-center text-white max-w-full">
             <h2 class="text-2xl md:text-3xl font-bold mb-3" data-aos="fade-up">Need Freight or Clearing Services?</h2>
             <p class="text-sm md:text-base mb-6 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">Contact us
                 today for a competitive quote</p>
