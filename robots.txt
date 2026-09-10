@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Block admin and sensitive files
+Disallow: /cgi-bin/
+Disallow: /venv/
+Disallow: /components/
+Disallow: /js.zip
+Disallow: /resume.html
+
+# Sitemap location
+Sitemap: https://najmi.co.zm/sitemap.xml
