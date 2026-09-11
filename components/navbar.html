@@ -10,7 +10,6 @@
             </div>
         </div>
         
-        
         <div class="hidden md:flex items-center justify-center absolute left-1/2 transform -translate-x-1/2">
             <div class="nav-cycle-container flex items-center space-x-1 px-2 py-1.5 rounded-full">
                 <a href="index.html" class="nav-link-glass px-5 py-2 rounded-full transition-all duration-300 text-sm font-medium">
@@ -28,24 +27,19 @@
             </div>
         </div>
         
-        
         <div class="hidden md:block w-12"></div>
         
-        
         <button id="mobile-menu-btn" class="md:hidden text-gray-700 focus:outline-none relative w-9 h-9 flex items-center justify-center" aria-label="Toggle menu">
-            <!-- Hamburger Icon -->
             <div class="hamburger-icon flex flex-col items-center justify-center gap-1.5 w-6 transition-all duration-300">
                 <span class="hamburger-line block w-6 h-0.5 bg-gray-700 rounded-full transition-all duration-300 origin-center"></span>
                 <span class="hamburger-line block w-6 h-0.5 bg-gray-700 rounded-full transition-all duration-300 origin-center"></span>
                 <span class="hamburger-line block w-6 h-0.5 bg-gray-700 rounded-full transition-all duration-300 origin-center"></span>
             </div>
-            <!-- Scissors Icon (hidden by default) -->
             <div class="scissors-icon absolute inset-0 flex items-center justify-center opacity-0 transition-all duration-300">
                 <i class="fas fa-cut text-2xl text-gray-700"></i>
             </div>
         </button>
     </div>
-    
     
     <div id="mobile-menu" class="hidden md:hidden glass-nav-mobile backdrop-blur-md bg-white/95 shadow-lg mt-2 mx-4 rounded-2xl">
         <div class="px-4 py-3 space-y-2">
@@ -66,7 +60,6 @@
 </nav>
 
 <style>
-    /* ========== GLASS WHITE SCROLLBAR ========== */
     ::-webkit-scrollbar {
         width: 10px !important;
         height: 10px !important;
@@ -94,7 +87,6 @@
         scrollbar-color: rgba(255, 255, 255, 0.5) rgba(255, 255, 255, 0.1) !important;
     }
     
-    /* NAVBAR - FIXED */
     #navbar {
         position: fixed !important;
         top: 0 !important;
@@ -110,7 +102,6 @@
         border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
     }
 
-    /* LIQUID GLASS FULL WIDTH - REMOVED */
     .glass-nav-full {
         background: transparent !important;
         backdrop-filter: none !important;
@@ -120,12 +111,10 @@
         position: relative !important;
     }
     
-    /* LIQUID SHIMMER EFFECT - REMOVED */
     .glass-nav-full::before {
         display: none !important;
     }
 
-    /* ========== PREMIUM LOGO TITLE STYLES ========== */
     .logo-wrapper-nav {
         z-index: 3 !important;
     }
@@ -172,7 +161,6 @@
         display: block !important;
     }
     
-    /* Scroll enlarge effect for premium title */
     body.scrolled .logo-line-1 {
         font-size: 1.1rem !important;
         letter-spacing: 2.5px !important;
@@ -188,7 +176,6 @@
         letter-spacing: 3px !important;
     }
     
-    /* ===== BUTTON CONTAINER - KEPT LIQUID GLASS ===== */
     .nav-cycle-container {
         background: rgba(255, 255, 255, 0.15) !important;
         backdrop-filter: blur(12px) !important;
@@ -198,7 +185,6 @@
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06) !important;
     }
     
-    /* Nav Link Styles - REMOVED hover expansion/transform */
     .nav-link-glass {
         font-weight: 500 !important;
         transition: all 0.3s ease !important;
@@ -212,7 +198,6 @@
     .nav-link-glass:hover {
         background: #1E3A8A !important;
         color: white !important;
-        /* REMOVED: transform: translateY(-2px) !important; */
     }
     
     .nav-link-glass.active {
@@ -223,7 +208,6 @@
         box-shadow: 0 4px 12px rgba(139, 0, 0, 0.2) !important;
     }
     
-    /* Scroll enlarge effect */
     body.scrolled .nav-cycle-container {
         background: rgba(255, 255, 255, 0.2) !important;
         backdrop-filter: blur(12px) !important;
@@ -234,7 +218,6 @@
         padding: 0.6rem 1.2rem !important;
     }
     
-    /* Mobile Glass Menu */
     .glass-nav-mobile {
         backdrop-filter: blur(12px) !important;
         background: rgba(255, 255, 255, 0.95) !important;
@@ -260,9 +243,6 @@
         border-radius: 9999px !important;
     }
 
-    /* ========================================
-       MOBILE NAV LINK ICONS
-       ======================================== */
     .mobile-nav-link i {
         width: 20px;
         text-align: center;
@@ -273,7 +253,6 @@
         color: white !important;
     }
     
-    /* ========== HAMBURGER TO SCISSORS ANIMATION ========== */
     #mobile-menu-btn {
         width: 44px !important;
         height: 44px !important;
@@ -323,7 +302,6 @@
         transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     
-    /* ========== SMALL LIGHT BLUE SCROLL TO TOP BUTTON ========== */
     .scroll-top {
         position: fixed !important;
         bottom: 25px !important;
@@ -370,7 +348,6 @@
         animation: light-pulse 2s infinite !important;
     }
     
-    /* ========== COLORLESS BLUR + ZOOM ON SCROLL EFFECT ========== */
     .blur-zoom-on-scroll {
         opacity: 0.7 !important;
         filter: blur(4px) !important;
@@ -391,11 +368,9 @@
     .blur-zoom-on-scroll.delay-4 { transition-delay: 0.2s; }
     .blur-zoom-on-scroll.delay-5 { transition-delay: 0.25s; }
     
-    /* Responsive */
     @media (max-width: 768px) {
         .glass-nav-full { padding: 0 1rem !important; }
         
-        /* Mobile premium title sizing */
         .logo-line-1 { font-size: 0.8rem !important; letter-spacing: 1.5px !important; }
         .logo-line-2 { font-size: 0.5rem !important; letter-spacing: 1px !important; }
         .logo-line-3 { font-size: 0.46rem !important; letter-spacing: 2px !important; }
@@ -428,10 +403,18 @@
         .logo-line-2 { font-size: 0.55rem !important; }
         .logo-line-3 { font-size: 0.52rem !important; }
     }
+
+    @media (max-width: 768px) {
+        .blur-zoom-on-scroll {
+            opacity: 1 !important;
+            filter: blur(0px) !important;
+            transform: scale(1) !important;
+            transition: none !important;
+        }
+    }
 </style>
 
 <script>
-    // Set active class based on current page
     (function() {
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
         
@@ -453,7 +436,6 @@
             }
         });
         
-        // Mobile menu toggle with scissors animation
         const menuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         if (menuBtn && mobileMenu) {
@@ -467,7 +449,6 @@
             });
         }
         
-        // Close menu and reset icon when a mobile link is clicked
         document.querySelectorAll('#mobile-menu a').forEach(link => {
             link.addEventListener('click', function() {
                 mobileMenu.classList.add('hidden');
@@ -478,7 +459,6 @@
             });
         });
         
-        // Close menu when clicking outside
         document.addEventListener('click', function(e) {
             if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
                 if (!mobileMenu.contains(e.target) && e.target !== menuBtn && !menuBtn.contains(e.target)) {
@@ -491,7 +471,6 @@
             }
         });
         
-        // Scroll enlarge effect for navbar
         function handleScrollEnlarge() {
             if (window.scrollY > 100) {
                 document.body.classList.add('scrolled');
@@ -503,7 +482,6 @@
         handleScrollEnlarge();
         window.addEventListener('scroll', handleScrollEnlarge);
         
-        // Scroll to top button
         let scrollTopBtn = document.querySelector('.scroll-top');
         if (!scrollTopBtn) {
             scrollTopBtn = document.createElement('div');
@@ -524,7 +502,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
         
-        // ========== BLUR + ZOOM ON SCROLL EFFECT ==========
         function initBlurZoomOnScroll() {
             const sections = document.querySelectorAll('section, .service-card, .why-card, .coverage-card, .testimonial-card, .stats-card, .hero-swiper > div, .pt-20 h1, .pt-20 p, .container > div, .grid > div');
             
